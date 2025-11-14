@@ -133,34 +133,47 @@
     font-size: 0.875rem;
 }
 
-.cookie-consent-inline-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.cookie-consent-inline-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
 }
 
-.cookie-consent-inline-item {
-    padding: 1rem;
+.cookie-consent-inline-table thead {
+    background-color: #f9fafb;
+}
+
+.cookie-consent-inline-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.cookie-consent-inline-table td {
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    vertical-align: top;
 }
 
-.cookie-consent-inline-item:last-child {
+.cookie-consent-inline-table tbody tr:last-child td {
     border-bottom: none;
+}
+
+.cookie-consent-inline-table tbody tr:hover {
+    background-color: #f9fafb;
 }
 
 .cookie-consent-inline-name {
     font-weight: 600;
     color: #111827;
-    font-size: 0.9375rem;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .cookie-consent-inline-value {
     color: #6b7280;
-    font-size: 0.875rem;
     font-family: monospace;
     word-break: break-all;
+    font-size: 0.8125rem;
 }

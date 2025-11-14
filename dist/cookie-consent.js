@@ -426,27 +426,43 @@
                     emptyMessage.textContent = 'No cookies found';
                     container.appendChild(emptyMessage);
                 } else {
-                    const list = document.createElement('ul');
-                    list.className = 'cookie-consent-inline-list';
+                    const table = document.createElement('table');
+                    table.className = 'cookie-consent-inline-table';
+
+                    const thead = document.createElement('thead');
+                    const headerRow = document.createElement('tr');
+
+                    const nameHeader = document.createElement('th');
+                    nameHeader.textContent = 'Cookie name';
+
+                    const valueHeader = document.createElement('th');
+                    valueHeader.textContent = 'Value';
+
+                    headerRow.appendChild(nameHeader);
+                    headerRow.appendChild(valueHeader);
+                    thead.appendChild(headerRow);
+                    table.appendChild(thead);
+
+                    const tbody = document.createElement('tbody');
 
                     allCookies.forEach((cookie) => {
-                        const item = document.createElement('li');
-                        item.className = 'cookie-consent-inline-item';
+                        const row = document.createElement('tr');
 
-                        const name = document.createElement('span');
-                        name.className = 'cookie-consent-inline-name';
-                        name.textContent = cookie.name;
+                        const nameCell = document.createElement('td');
+                        nameCell.className = 'cookie-consent-inline-name';
+                        nameCell.textContent = cookie.name;
 
-                        const value = document.createElement('span');
-                        value.className = 'cookie-consent-inline-value';
-                        value.textContent = cookie.value;
+                        const valueCell = document.createElement('td');
+                        valueCell.className = 'cookie-consent-inline-value';
+                        valueCell.textContent = cookie.value;
 
-                        item.appendChild(name);
-                        item.appendChild(value);
-                        list.appendChild(item);
+                        row.appendChild(nameCell);
+                        row.appendChild(valueCell);
+                        tbody.appendChild(row);
                     });
 
-                    container.appendChild(list);
+                    table.appendChild(tbody);
+                    container.appendChild(table);
                 }
             });
         },
