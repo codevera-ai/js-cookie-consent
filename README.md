@@ -64,6 +64,36 @@ Download or clone the repository and include the files in your HTML:
 <script src="path/to/ccmanager.js"></script>
 ```
 
+### CSS Import for Bundlers
+
+If you're using a module bundler like Webpack, Vite, or Rollup, you can import the CSS directly in your JavaScript:
+
+**Import both CSS and JavaScript:**
+```javascript
+import '@codevera-ai/cookie-consent-manager/dist/ccmanager.min.css';
+import '@codevera-ai/cookie-consent-manager';
+```
+
+**Or import the unminified versions for development:**
+```javascript
+import '@codevera-ai/cookie-consent-manager/src/ccmanager.css';
+import '@codevera-ai/cookie-consent-manager/src/ccmanager.js';
+```
+
+**Webpack specific example:**
+```javascript
+// In your main entry file (e.g., index.js)
+import '@codevera-ai/cookie-consent-manager/dist/ccmanager.min.css';
+import '@codevera-ai/cookie-consent-manager';
+```
+
+**Vite specific example:**
+```javascript
+// In your main.js or app.js
+import '@codevera-ai/cookie-consent-manager/dist/ccmanager.min.css';
+import '@codevera-ai/cookie-consent-manager';
+```
+
 ## Quick start
 
 Create your cookie consent banner HTML with the required data attributes and classes:
@@ -84,6 +114,133 @@ Create your cookie consent banner HTML with the required data attributes and cla
 
 The library will automatically initialise when the page loads if it finds an element with the `data-cookie-consent` attribute.
 
+## Complete Implementation Example
+
+Here's a complete example showing how to implement the cookie consent banner with a modern bundler setup:
+
+**HTML:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+    <!-- Your page content -->
+    
+    <!-- Cookie consent banner -->
+    <div data-cookie-consent data-position="bottom" data-animation="slide" data-width="full">
+        <div class="cookie-container">
+            <div class="cookie-content">
+                <div class="cookie-text">
+                    <h2>We value your privacy</h2>
+                    <p>We use cookies on this website to enhance your user experience.</p>
+                </div>
+                <div class="cookie-buttons">
+                    <button class="btn-accept js-cookie-accept">Accept & Continue</button>
+                    <button class="btn-decline js-cookie-reject">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="your-bundle.js"></script>
+</body>
+</html>
+```
+
+**JavaScript (main.js):**
+```javascript
+// Import the cookie consent library
+import '@codevera-ai/cookie-consent-manager/dist/ccmanager.min.css';
+import '@codevera-ai/cookie-consent-manager';
+
+// Listen for consent events
+document.addEventListener('cookieConsent:consent-given', function(event) {
+    console.log('Consent given:', event.detail);
+    // Load analytics, tracking scripts, etc.
+});
+
+document.addEventListener('cookieConsent:consent-rejected', function(event) {
+    console.log('Consent rejected:', event.detail);
+    // Remove or don't load tracking scripts
+});
+```
+
+**CSS (styles.css):**
+```css
+/* Custom styling for your banner */
+[data-cookie-consent] {
+    background: linear-gradient(135deg, #f5b895 0%, #f3a876 100%);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cookie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cookie-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+.cookie-text h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.cookie-text p {
+    margin: 0;
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.cookie-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 280px;
+}
+
+.cookie-buttons button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+.btn-accept {
+    background: #ff4f1a;
+    color: white;
+}
+
+.btn-decline {
+    background: transparent;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .cookie-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
+```
+
 ## Configuration
 
 ### Data attributes
@@ -102,21 +259,31 @@ Identifies the container as a cookie consent banner.
 
 #### `data-position`
 
-Controls where the banner appears on the screen.
+Controls where the banner appears on the screen. Each position applies specific CSS positioning and transforms.
 
 **Options:**
-- `top-left`
-- `top-center`
-- `top-right`
-- `bottom-left`
-- `bottom-center` (default)
-- `bottom-right`
-- `center`
+- `top-left` - Fixed to top-left corner
+- `top-center` - Fixed to top centre with `left: 50%; transform: translateX(-50%)`
+- `top-right` - Fixed to top-right corner
+- `bottom-left` - Fixed to bottom-left corner
+- `bottom-center` (default) - Fixed to bottom centre with `left: 50%; transform: translateX(-50%)`
+- `bottom-right` - Fixed to bottom-right corner
+- `center` - Centred on screen with `top: 50%; left: 50%; transform: translate(-50%, -50%)`
 
 ```html
 <div data-cookie-consent data-position="bottom-right">
     <!-- Your banner content -->
 </div>
+```
+
+**Important:** If you need full-width positioning without transforms, use `data-position="bottom"` or `data-position="top"` and override with CSS:
+
+```css
+[data-cookie-consent] {
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+}
 ```
 
 #### `data-animation`
@@ -127,11 +294,28 @@ Controls how the banner appears and disappears.
 - `slide` (default)
 - `fade`
 - `scale`
+- `none` - Disables animations
 
 ```html
 <div data-cookie-consent data-animation="fade">
     <!-- Your banner content -->
 </div>
+```
+
+**Animation Conflicts Warning:** Certain combinations of `data-position` and `data-animation` can cause layout jumps during transitions, particularly with `bottom-center` + `slide`. This happens because the positioning transforms conflict with animation transforms. If you experience layout jumping:
+
+1. Use `data-animation="none"` to disable built-in animations
+2. Implement your own CSS animations without conflicting transforms:
+
+```css
+[data-cookie-consent] {
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+[data-cookie-consent].is-visible {
+    transform: translateY(0);
+}
 ```
 
 #### `data-width`
