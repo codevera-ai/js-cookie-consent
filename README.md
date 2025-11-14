@@ -43,6 +43,13 @@ npm install @codevera-ai/js-cookie-consent
 
 ### Via CDN
 
+**Minified (recommended for production):**
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codevera-ai/js-cookie-consent@1.0.0/dist/cookie-consent.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@codevera-ai/js-cookie-consent@1.0.0/dist/cookie-consent.min.js"></script>
+```
+
+**Unminified (for development):**
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codevera-ai/js-cookie-consent/src/cookie-consent.css">
 <script src="https://cdn.jsdelivr.net/npm/@codevera-ai/js-cookie-consent/src/cookie-consent.js"></script>
