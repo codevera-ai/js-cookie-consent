@@ -2,6 +2,25 @@
 
 A lightweight, customisable vanilla JavaScript library for managing cookie consent. This library handles all the consent logic whilst giving you complete control over the design and appearance of your cookie banner.
 
+## Why this library is different
+
+Unlike other cookie consent libraries that force you into a specific design, this library gives you **100% control over the appearance** of your cookie banner. We only provide the functionality - you design the interface.
+
+**What this library does:**
+- Manages cookie consent state
+- Handles user accept/reject actions
+- Stores consent preferences
+- Provides event-driven architecture
+- Shows/hides your banner based on consent status
+- Displays cookies when requested
+
+**What this library doesn't do:**
+- Force any specific design or styling on you
+- Include pre-built CSS themes (though we provide examples)
+- Limit your creative freedom
+
+You build your banner exactly how you want it to look. We handle everything else.
+
 ## Features
 
 - Fully customisable design and styling
