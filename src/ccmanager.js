@@ -34,9 +34,9 @@
                 return;
             }
 
-            this.position = this.container.getAttribute('data-position') || 'bottom-center';
-            this.animation = this.container.getAttribute('data-animation') || 'slide';
-            this.width = this.container.getAttribute('data-width') || 'full';
+            this.position = this.container.getAttribute('data-cookie-consent-position') || 'bottom-center';
+            this.animation = this.container.getAttribute('data-cookie-consent-animation') || 'slide';
+            this.width = this.container.getAttribute('data-cookie-consent-width') || 'full';
 
             this.applyPositioning();
             this.bindEvents();
@@ -97,7 +97,7 @@
                 }
             }
 
-            this.container.setAttribute('data-animation', this.animation);
+            this.container.setAttribute('data-cookie-consent-animation', this.animation);
         },
 
         /**

@@ -14,106 +14,106 @@
 }
 
 /* Slide animations */
-[data-cookie-consent][data-animation="slide"][data-position^="bottom"] {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position^="bottom"] {
     transform: translateY(100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position^="bottom"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position^="bottom"].is-visible {
     transform: translateY(0);
 }
 
-[data-cookie-consent][data-animation="slide"][data-position^="top"] {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position^="top"] {
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position^="top"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position^="top"].is-visible {
     transform: translateY(0);
 }
 
-[data-cookie-consent][data-animation="slide"][data-position$="left"]:not([data-position^="top"]):not([data-position^="bottom"]) {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position$="left"]:not([data-cookie-consent-position^="top"]):not([data-cookie-consent-position^="bottom"]) {
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position$="left"]:not([data-position^="top"]):not([data-position^="bottom"]).is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position$="left"]:not([data-cookie-consent-position^="top"]):not([data-cookie-consent-position^="bottom"]).is-visible {
     transform: translateX(0);
 }
 
-[data-cookie-consent][data-animation="slide"][data-position$="right"]:not([data-position^="top"]):not([data-position^="bottom"]) {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position$="right"]:not([data-cookie-consent-position^="top"]):not([data-cookie-consent-position^="bottom"]) {
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position$="right"]:not([data-position^="top"]):not([data-position^="bottom"]).is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position$="right"]:not([data-cookie-consent-position^="top"]):not([data-cookie-consent-position^="bottom"]).is-visible {
     transform: translateX(0);
 }
 
 /* Slide animation for center position with translateX */
-[data-cookie-consent][data-animation="slide"][data-position="bottom-center"] {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="bottom-center"] {
     transform: translate(-50%, 100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position="bottom-center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="bottom-center"].is-visible {
     transform: translate(-50%, 0);
 }
 
-[data-cookie-consent][data-animation="slide"][data-position="top-center"] {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="top-center"] {
     transform: translate(-50%, -100%);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position="top-center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="top-center"].is-visible {
     transform: translate(-50%, 0);
 }
 
-[data-cookie-consent][data-animation="slide"][data-position="center"] {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="center"] {
     transform: translate(-50%, -50%) scale(0.8);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="slide"][data-position="center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="slide"][data-cookie-consent-position="center"].is-visible {
     transform: translate(-50%, -50%) scale(1);
 }
 
 /* Fade animation */
-[data-cookie-consent][data-animation="fade"] {
+[data-cookie-consent][data-cookie-consent-animation="fade"] {
     transition: opacity 0.3s ease-in-out;
 }
 
 /* Scale animation */
-[data-cookie-consent][data-animation="scale"] {
+[data-cookie-consent][data-cookie-consent-animation="scale"] {
     transform: scale(0.8);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-[data-cookie-consent][data-animation="scale"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="scale"].is-visible {
     transform: scale(1);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="bottom-center"] {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="bottom-center"] {
     transform: translate(-50%, 0) scale(0.8);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="bottom-center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="bottom-center"].is-visible {
     transform: translate(-50%, 0) scale(1);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="top-center"] {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="top-center"] {
     transform: translate(-50%, 0) scale(0.8);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="top-center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="top-center"].is-visible {
     transform: translate(-50%, 0) scale(1);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="center"] {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="center"] {
     transform: translate(-50%, -50%) scale(0.8);
 }
 
-[data-cookie-consent][data-animation="scale"][data-position="center"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="scale"][data-cookie-consent-position="center"].is-visible {
     transform: translate(-50%, -50%) scale(1);
 }
 

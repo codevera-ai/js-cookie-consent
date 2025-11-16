@@ -99,7 +99,7 @@ import '@codevera-ai/cookie-consent-manager';
 Create your cookie consent banner HTML with the required data attributes and classes:
 
 ```html
-<div data-cookie-consent data-position="bottom-center" data-animation="slide" data-width="full">
+<div data-cookie-consent data-cookie-consent-position="bottom-center" data-cookie-consent-animation="slide" data-cookie-consent-width="full">
     <div>
         <h2>We use cookies</h2>
         <p>We use cookies to improve your experience on our site.</p>
@@ -129,7 +129,7 @@ Here's a complete example showing how to implement the cookie consent banner wit
     <!-- Your page content -->
     
     <!-- Cookie consent banner -->
-    <div data-cookie-consent data-position="bottom" data-animation="slide" data-width="full">
+    <div data-cookie-consent data-cookie-consent-position="bottom" data-cookie-consent-animation="slide" data-cookie-consent-width="full">
         <div class="cookie-container">
             <div class="cookie-content">
                 <div class="cookie-text">
@@ -257,7 +257,7 @@ Identifies the container as a cookie consent banner.
 </div>
 ```
 
-#### `data-position`
+#### `data-cookie-consent-position`
 
 Controls where the banner appears on the screen. Each position applies specific CSS positioning and transforms.
 
@@ -271,12 +271,12 @@ Controls where the banner appears on the screen. Each position applies specific 
 - `center` - Centred on screen with `top: 50%; left: 50%; transform: translate(-50%, -50%)`
 
 ```html
-<div data-cookie-consent data-position="bottom-right">
+<div data-cookie-consent data-cookie-consent-position="bottom-right">
     <!-- Your banner content -->
 </div>
 ```
 
-**Important:** If you need full-width positioning without transforms, use `data-position="bottom"` or `data-position="top"` and override with CSS:
+**Important:** If you need full-width positioning without transforms, use `data-cookie-consent-position="bottom"` or `data-cookie-consent-position="top"` and override with CSS:
 
 ```css
 [data-cookie-consent] {
@@ -286,7 +286,7 @@ Controls where the banner appears on the screen. Each position applies specific 
 }
 ```
 
-#### `data-animation`
+#### `data-cookie-consent-animation`
 
 Controls how the banner appears and disappears.
 
@@ -297,14 +297,14 @@ Controls how the banner appears and disappears.
 - `none` - Disables animations
 
 ```html
-<div data-cookie-consent data-animation="fade">
+<div data-cookie-consent data-cookie-consent-animation="fade">
     <!-- Your banner content -->
 </div>
 ```
 
-**Animation Conflicts Warning:** Certain combinations of `data-position` and `data-animation` can cause layout jumps during transitions, particularly with `bottom-center` + `slide`. This happens because the positioning transforms conflict with animation transforms. If you experience layout jumping:
+**Animation Conflicts Warning:** Certain combinations of `data-cookie-consent-position` and `data-cookie-consent-animation` can cause layout jumps during transitions, particularly with `bottom-center` + `slide`. This happens because the positioning transforms conflict with animation transforms. If you experience layout jumping:
 
-1. Use `data-animation="none"` to disable built-in animations
+1. Use `data-cookie-consent-animation="none"` to disable built-in animations
 2. Implement your own CSS animations without conflicting transforms:
 
 ```css
@@ -318,7 +318,7 @@ Controls how the banner appears and disappears.
 }
 ```
 
-#### `data-width`
+#### `data-cookie-consent-width`
 
 Controls the width of the banner.
 
@@ -330,7 +330,7 @@ Controls the width of the banner.
 - `auto` - Content-based width
 
 ```html
-<div data-cookie-consent data-width="half">
+<div data-cookie-consent data-cookie-consent-width="half">
     <!-- Your banner content -->
 </div>
 ```
@@ -690,13 +690,13 @@ The library only applies positioning and animation styles. All visual styling is
 Override the default animations in your CSS:
 
 ```css
-[data-cookie-consent][data-animation="custom"] {
+[data-cookie-consent][data-cookie-consent-animation="custom"] {
     opacity: 0;
     transform: rotate(0deg);
     transition: all 0.5s ease;
 }
 
-[data-cookie-consent][data-animation="custom"].is-visible {
+[data-cookie-consent][data-cookie-consent-animation="custom"].is-visible {
     opacity: 1;
     transform: rotate(360deg);
 }
@@ -705,7 +705,7 @@ Override the default animations in your CSS:
 Then use it in your HTML:
 
 ```html
-<div data-cookie-consent data-animation="custom">
+<div data-cookie-consent data-cookie-consent-animation="custom">
     <!-- Your banner content -->
 </div>
 ```
